@@ -1,0 +1,54 @@
+#
+.ruby-version
+*.gem
+tmp/
+
+# rcov generated
+coverage
+coverage.data
+
+# rdoc generated
+rdoc
+
+# yard generated
+doc
+.yardoc
+
+# bundler
+.bundle
+vendor
+
+# jeweler generated
+pkg
+
+.DS_Store
+
+# For TextMate
+*.tmproj
+tmtags
+
+
+# For emacs:
+*~
+\#*
+.\#*
+
+# For vim:
+*.swp
+
+# ruby debugger
+.byebug_*
+
+# files created during test executions
+*.sqlite3
+*.log
+gem_graph.png
+
+# jruby
+*.jar
+
+# rubymine
+.idea
+
+# data volumes used by docker
+examples/run
