@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'rack-cors'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'byebug', platform: :mri
 end
 
