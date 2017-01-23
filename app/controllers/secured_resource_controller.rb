@@ -4,7 +4,7 @@ class SecuredResourceController < ApplicationController
   def index
     render json: {
       message: "All good. You only get this message if you're authenticated.",
-      user: current_user
+      user_id: current_user.user_id
     } 
   end
 end
