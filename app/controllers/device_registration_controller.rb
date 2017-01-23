@@ -1,6 +1,6 @@
 class DeviceRegistrationController < ApplicationController
   before_action :authenticate_user
-  
+
   def create
     logger.info "received registration request from #{device_info(params)}"
 
