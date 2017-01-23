@@ -8,7 +8,7 @@ class PushNotificationJob < ApplicationJob
   def apn
     unless @apn
       @apn = Houston::Client.development
-      @apn.certificate = File.read('/Users/lee/Downloads/aps.cer')
+      @apn.certificate = File.read(ENV['APS_CERT_PATH'])
     end
     @apn
   end
