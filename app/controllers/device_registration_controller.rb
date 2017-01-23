@@ -2,7 +2,6 @@ class DeviceRegistrationController < ApplicationController
   before_action :authenticate_user
   
   def create
-    byebug
     logger.info "received registration request from #{device_info(params)}"
 
     device_id = params['device_uuid']
@@ -12,7 +11,8 @@ class DeviceRegistrationController < ApplicationController
     reg.received = Time.now
     reg.save
 
-    # TODO: pass reg to Push notification job
+    event = Event.create(token: device_id)
+    PushNotificationJob.perform_later event
 
     head :created
   end

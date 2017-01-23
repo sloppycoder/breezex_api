@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device_uuid: 
+  sent: false
+  attempts: 
+
+two:
+  device_uuid: 
+  sent: false
+  attempts: 

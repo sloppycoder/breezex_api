@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123023603) do
+ActiveRecord::Schema.define(version: 20170123104636) do
 
   create_table "device_registrations", force: :cascade do |t|
     t.integer  "user_id"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20170123023603) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_device_registrations_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "token"
+    t.string   "service_type", default: "APN"
+    t.boolean  "sent",         default: false
+    t.integer  "attempts",     default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|

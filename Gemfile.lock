@@ -42,6 +42,8 @@ GEM
     bcrypt (3.1.11)
     builder (3.2.3)
     byebug (9.0.6)
+    commander (4.4.3)
+      highline (~> 1.7.2)
     concurrent-ruby (1.0.4)
     dotenv (2.1.2)
     dotenv-rails (2.1.2)
@@ -51,10 +53,15 @@ GEM
     ffi (1.9.17)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    highline (1.7.8)
+    houston (2.2.4)
+      commander (~> 4.4)
+      json
     i18n (0.7.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
+    json (2.0.3)
     jwt (1.5.6)
     knock (2.0)
       bcrypt (~> 3.1)
@@ -135,6 +142,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   dotenv-rails
+  houston (~> 2.2)
   jbuilder (~> 2.5)
   knock (~> 2.0)
   listen (~> 3.0.5)

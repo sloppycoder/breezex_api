@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'knock', '~> 2.0'
+gem 'houston', '~>2.2'
 # gem 'rack-cors'
 
 # Use Redis adapter to run Action Cable in production
