@@ -4,14 +4,14 @@ class DeviceRegistrationController < ApplicationController
   def create
     logger.info "received registration request from #{device_info(params)}"
 
-    device_id = params['device_uuid']
+    device_id = params['device_registration']['device_uuid']
     reg = DeviceRegistration.find_or_create_by(device_uuid: device_id)
     reg.user = current_user if reg.new_record?
     reg.notified = false
     reg.received = Time.now
     reg.save
 
-    notify_device(params['token'])
+    notify_device(params['device_registration']['token'])
 
     head :created
   end
@@ -25,6 +25,7 @@ class DeviceRegistrationController < ApplicationController
   end
 
   def device_info(params)
-    "Device #{params['model']}, #{params['device_id']}, #{params['device_uuid']}"
+    p = params['device_registration']
+    "Device #{p['model']}, #{p['device_id']}, #{p['device_uuid']}"
   end
 end
