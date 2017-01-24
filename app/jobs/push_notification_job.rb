@@ -18,5 +18,12 @@ class PushNotificationJob < ApplicationJob
     notification.alert = 'Welcome to the bank!'
     notification.custom_data = { message: 'welcome' }
     apn.push notificaiton
+
+    if notication.error
+      logger.error "Failed to send notification to #{event.token}"
+    else 
+      event.sent = true
+      event.save
+    end
   end
 end
