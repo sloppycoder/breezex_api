@@ -11,14 +11,17 @@ class DeviceRegistrationController < ApplicationController
     reg.received = Time.now
     reg.save
 
-    pn_token = params['pn_token']
-    if pn_token
-      logger.info "sending push nofication to device token #{pn_token}"
-      event = Event.create(token: pn_token)
-      PushNotificationJob.perform_later event
-    end
+    notify_device(params['token'])
 
     head :created
+  end
+
+  def notify_device(device_token)
+    if device_token
+      logger.info "sending push nofication to device token #{device_token}"
+      event = Event.create(token: device_token)
+      PushNotificationJob.perform_later event
+    end
   end
 
   def device_info(params)

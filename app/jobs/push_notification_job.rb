@@ -17,11 +17,11 @@ class PushNotificationJob < ApplicationJob
     notification = Houston::Notification.new(device: event.token)
     notification.alert = 'Welcome to the bank!'
     notification.custom_data = { message: 'welcome' }
-    apn.push notificaiton
+    apn.push notification
 
-    if notication.error
-      logger.error "Failed to send notification to #{event.token}"
-    else 
+    if notifcation.error
+      logger.error "Error #{notification.error} when sending notification to #{event.token}"
+    else
       event.sent = true
       event.save
     end
