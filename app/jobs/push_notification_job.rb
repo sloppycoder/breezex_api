@@ -19,7 +19,7 @@ class PushNotificationJob < ApplicationJob
     notification.custom_data = { message: 'welcome' }
     apn.push notification
 
-    if notifcation.error
+    if notification.error
       logger.error "Error #{notification.error} when sending notification to #{event.token}"
     else
       event.sent = true
