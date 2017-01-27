@@ -14,16 +14,20 @@ class PushNotificationJob < ApplicationJob
   end
 
   def perform(event)
-    notification = Houston::Notification.new(device: event.token)
-    notification.alert = 'Welcome to the bank!'
-    notification.custom_data = { message: 'welcome' }
-    apn.push notification
+    if event.os == 'ios'
+      notification = Houston::Notification.new(device: event.token)
+      notification.alert = 'Welcome to the bank!'
+      notification.custom_data = { message: 'welcome' }
+      apn.push notification
 
-    if notification.error
-      logger.error "Error #{notification.error} when sending notification to #{event.token}"
-    else
-      event.sent = true
-      event.save
+      if notification.error
+        logger.error "Error #{notification.error} when sending notification to #{event.token}"
+      else
+        event.sent = true
+        event.save
+      end
+    else 
+      logger.info 'Android push notificaiton support is not yet implemented'
     end
   end
 end

@@ -18,8 +18,8 @@ class DeviceRegistrationController < ApplicationController
 
   def notify_device(device_token)
     if device_token
-      logger.info "sending push nofication to device token #{device_token}"
-      event = Event.create(token: device_token)
+      logger.info "sending iOS push nofication to device token #{device_token}"
+      event = Event.create(os: device_token['os'], token: device_token['token'])
       PushNotificationJob.perform_later event
     end
   end
