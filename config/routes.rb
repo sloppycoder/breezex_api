@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :casa_accounts
   resources :customers
 
+  # graphql
+  resources :queries, via: [:post, :options]
+
   # ruby-graphiql UI
   mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/queries"
 end
