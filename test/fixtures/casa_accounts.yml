@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_no: MyString
+  bal: 
+  avail_bal: 
+  product_code: MyString
+  product_desc: MyString
+  currency: MyString
+
+two:
+  account_no: MyString
+  bal: 
+  avail_bal: 
+  product_code: MyString
+  product_desc: MyString
+  currency: MyString

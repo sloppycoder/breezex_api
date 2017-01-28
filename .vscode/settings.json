@@ -1,0 +1,11 @@
+{
+    "ruby.lint": {
+        "debride": {
+            "rails": true
+        },
+        "rubocop": {
+            "lint": true,
+            "rails": true
+        }
+    }
+}

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rel_id: MyString
+  name: MyString
+  segment: 
+  country: MyString
+  active: false
+
+two:
+  rel_id: MyString
+  name: MyString
+  segment: 
+  country: MyString
+  active: false

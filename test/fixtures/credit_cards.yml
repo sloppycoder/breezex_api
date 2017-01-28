@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_no: MyString
+  bal: 9.99
+  avail_bal: 9.99
+  last_stmt_bal: 9.99
+  due_date: 2017-01-28
+  credit_limit: 9.99
+
+two:
+  account_no: MyString
+  bal: 9.99
+  avail_bal: 9.99
+  last_stmt_bal: 9.99
+  due_date: 2017-01-28
+  credit_limit: 9.99

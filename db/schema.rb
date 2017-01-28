@@ -10,7 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170122122759) do
+ActiveRecord::Schema.define(version: 20170128090748) do
+
+  create_table "casa_accounts", force: :cascade do |t|
+    t.string   "account_no"
+    t.string   "product_code", limit: 10
+    t.string   "product_desc"
+    t.string   "currency",     limit: 3
+    t.decimal  "bal",                     precision: 8, scale: 2, default: "0.0"
+    t.decimal  "avail_bal",               precision: 8, scale: 2, default: "0.0"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+    t.integer  "customer_id"
+    t.index ["customer_id"], name: "index_casa_accounts_on_customer_id"
+  end
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.string   "account_no"
+    t.date     "due_date"
+    t.string   "product_code",  limit: 10
+    t.string   "product_desc"
+    t.string   "currency",      limit: 3
+    t.decimal  "bal",                      precision: 8, scale: 2, default: "0.0"
+    t.decimal  "avail_credit",             precision: 8, scale: 2, default: "0.0"
+    t.decimal  "last_stmt_bal",            precision: 8, scale: 2, default: "0.0"
+    t.decimal  "credit_limit",             precision: 8, scale: 2, default: "0.0"
+    t.datetime "created_at",                                                       null: false
+    t.datetime "updated_at",                                                       null: false
+    t.integer  "customer_id"
+    t.index ["customer_id"], name: "index_credit_cards_on_customer_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "rel_id"
+    t.string   "name"
+    t.integer  "segment",              default: 0
+    t.string   "country",    limit: 2
+    t.boolean  "active",               default: true
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "user_id"
@@ -19,6 +58,8 @@ ActiveRecord::Schema.define(version: 20170122122759) do
     t.datetime "last_access"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "customer_id"
+    t.index ["customer_id"], name: "index_users_on_customer_id"
   end
 
 end
