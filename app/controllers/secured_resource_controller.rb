@@ -5,6 +5,6 @@ class SecuredResourceController < ApplicationController
     render json: {
       message: "All good. You only get this message if you're authenticated.",
       user: current_user
-    } 
+    }
   end
 end
