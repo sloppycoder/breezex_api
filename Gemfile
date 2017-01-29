@@ -13,15 +13,15 @@ gem 'knock', '~> 2.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'graphql'
-gem 'graphiql-rails'
-# the following are need for graphiql UI to work
-gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
 
 group :development, :test do
   gem 'dotenv-rails'
   gem 'byebug', platform: :mri
+  gem 'graphiql-rails'
+  # the following are need for graphiql UI to work
+  gem 'sass-rails'
+  gem 'uglifier'
+  gem 'coffee-rails'
 end
 
 group :development do

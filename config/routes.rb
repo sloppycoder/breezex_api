@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   resources :queries, via: [:post, :options]
 
   # ruby-graphiql UI
-  mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/queries"
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/queries"
+  end
 end
