@@ -8,5 +8,5 @@ CasaAccountType = GraphQL::ObjectType.define do
   field :product_desc, !types.String
   field :currency, !types.String
   field :bal, !types.Float
-  field :avail_bal, !types.Float  
+  field :avail_bal, !types.Float
 end

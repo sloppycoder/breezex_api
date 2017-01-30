@@ -1,9 +1,9 @@
 class QueriesController < ApplicationController
   before_action :authenticate_user
-  
+
   def new
   end
- 
+
   def create
     query_string = params[:query]
     query_variables = params[:variables] || {}

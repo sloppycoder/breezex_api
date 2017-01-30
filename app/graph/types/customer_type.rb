@@ -7,16 +7,12 @@ CustomerType = GraphQL::ObjectType.define do
   field :name, !types.String
   field :segment, !types.String
   field :country, !types.String
-  field :casa_accounts do 
+  field :casa_accounts do
     type -> { types[CasaAccountType] }
-    resolve -> (obj, args, ctx) {
-      obj.casa_accounts
-    }
+    resolve -> (obj, _args, _ctx) { obj.casa_accounts }
   end
-  field :credit_cards do 
+  field :credit_cards do
     type -> { types[CreditCardType] }
-    resolve -> (obj, args, ctx) {
-      obj.credit_cards
-    }
+    resolve -> (obj, _args, _ctx) { obj.credit_cards }
   end
 end

@@ -12,6 +12,6 @@ Rails.application.routes.draw do
 
   # ruby-graphiql UI
   if Rails.env.development?
-    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/queries"
+    mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/queries'
   end
 end
