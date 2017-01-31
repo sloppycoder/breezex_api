@@ -6,24 +6,32 @@ QueryType = GraphQL::ObjectType.define do
   field :customer do
     type CustomerType
     argument :id, !types.ID
-    resolve = lambda do |_obj, args, _ctx|
+    resolve -> (obj, args, ctx) {
       Customer.find(args[:id])
-    end
+    }
   end
 
   field :casa_account do
     type CasaAccountType
     argument :id, !types.ID
-    resolve = lambda do |_obj, args, _ctx|
+    resolve -> (obj, args, ctx) {
       CasaAccount.find(args[:id])
-    end
+    }
   end
 
   field :credit_card do
     type CreditCardType
     argument :id, !types.ID
-    resolve = lambda do |_obj, args, _ctx|
+    resolve -> (obj, args, ctx) {
       CreditCard.find(args[:id])
-    end
+    }
+  end
+
+  field :transaction do
+    type TransactionType
+    argument :id, !types.ID
+    resolve -> (obj, args, ctx) {
+      Transaction.find(args[:id])
+    }
   end
 end

@@ -9,4 +9,8 @@ CasaAccountType = GraphQL::ObjectType.define do
   field :currency, !types.String
   field :bal, !types.Float
   field :avail_bal, !types.Float
+  field :transactions do
+    type -> { types[TransactionType] }
+    resolve -> (obj, _args, _ctx) { obj.transactions }
+  end
 end
