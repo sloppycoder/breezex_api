@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trx_date: 2017-01-30
+  memo: MyString
+  amount: 9.99
+  currency: 
+  bal: 9.99
+
+two:
+  trx_date: 2017-01-30
+  memo: MyString
+  amount: 9.99
+  currency: 
+  bal: 9.99

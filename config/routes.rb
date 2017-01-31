@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :credit_cards
   resources :casa_accounts
   resources :customers
+  resources :transactions
 
   # graphql
   resources :queries, via: [:post, :options]

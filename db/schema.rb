@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128090748) do
+ActiveRecord::Schema.define(version: 20170131064335) do
 
   create_table "casa_accounts", force: :cascade do |t|
     t.string   "account_no"
@@ -49,6 +49,19 @@ ActiveRecord::Schema.define(version: 20170128090748) do
     t.boolean  "active",               default: true
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.date     "trx_date"
+    t.string   "memo"
+    t.decimal  "withdrawl_amount",           precision: 8, scale: 2
+    t.decimal  "deposit_amount",             precision: 8, scale: 2
+    t.string   "currency",         limit: 3
+    t.decimal  "bal",                        precision: 8, scale: 2
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.integer  "casa_account_id"
+    t.index ["casa_account_id"], name: "index_transactions_on_casa_account_id"
   end
 
   create_table "users", force: :cascade do |t|
