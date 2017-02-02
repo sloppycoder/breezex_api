@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :queries, via: [:post, :options]
 
   # ruby-graphiql UI
-  if Rails.env.development?
-    mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/queries'
+  if Rails.env.development? || Rails.env.test?
+    mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: "#{Rails.configuration.action_controller.relative_url_root}/queries"
   end
 end
